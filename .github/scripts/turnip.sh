@@ -228,21 +228,28 @@ build_for_architecture() {
 	CC="ccache gcc" CXX="ccache g++" meson setup "$build_dir" \
 		--prefix=/usr \
 		-Dplatforms=x11,wayland \
-		-Dgallium-drivers=freedreno,zink,virgl,llvmpipe \
+		-Dgallium-drivers= \
 		-Dgallium-va=disabled \
 		-Dgallium-mediafoundation=disabled \
 		-Dvulkan-drivers=freedreno \
 		-Dvulkan-layers= \
-		-Degl=enabled \
-		-Dgles2=enabled \
-		-Dglvnd=enabled \
-		-Dglx=dri \
-		-Dlibunwind=disabled \
+		-Dgles1=disabled \
+		-Dgles2=disabled \
+		-Dopengl=false \
+		-Dgbm=disabled \
+		-Dglx=disabled \
+		-Dxlib-lease=disabled \
+		-Dfreedreno-kmds=kgsl \
+		-Degl=disabled \
+		-Dglvnd=disabled \
 		-Dintel-rt=disabled \
 		-Dmicrosoft-clc=disabled \
+		-Dllvm=disabled \
 		-Dvalgrind=disabled \
-		-Dgles1=disabled \
-		-Dfreedreno-kmds=kgsl \
+		-Dbuild-tests=false \
+		-Dlibunwind=disabled \
+		-Dlmsensors=disabled \
+		-Dandroid-libbacktrace=disabled \
 		-Dbuildtype=release
 
 	log_info "Building Mesa..."

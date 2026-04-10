@@ -73,7 +73,7 @@ jobs:
         runs-on: ubuntu-24.04-arm
         strategy:
             matrix:
-                arch: [aarch64, arm]
+                arch: [aarch64]
         steps:
             - name: Checkout repository
               uses: actions/checkout@v5
